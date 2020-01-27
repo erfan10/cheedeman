@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['as' => 'api.'], function () {
-
+    Route::apiResource('/products','ProductController');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
