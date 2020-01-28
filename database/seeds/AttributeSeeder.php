@@ -11,6 +11,6 @@ class AttributeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\App\Model\Attribute::class,300)->create();
     }
 }

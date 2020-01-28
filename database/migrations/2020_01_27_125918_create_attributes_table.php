@@ -14,8 +14,8 @@ class CreateAttributesTable extends Migration
     public function up()
     {
         Schema::create('attributes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('product_id')->unsigned()->index();
+            $table->increments('id');
+            $table->integer('product_id')->unsigned()->index()->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->decimal('price')->unsigned();
             $table->string('color_name');

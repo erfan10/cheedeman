@@ -14,14 +14,14 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->json('score');
             $table->string('title');
             $table->longText('caption');
-            $table->json('weakness')->default(`{}`);
-            $table->json('strength')->default(`{}`);
+            $table->json('weakness');
+            $table->json('strength');
             $table->timestamps();
         });
     }

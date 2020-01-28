@@ -14,13 +14,13 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('parent_id')->unsigned()->index();
             $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
             $table->string('icon');
-            $table->json('details_structure')->default(`{}`);
-            $table->json('score_structure')->default(`{}`);
+            $table->json('details_structure');
+            $table->json('score_structure');
             $table->timestamps();
         });
     }

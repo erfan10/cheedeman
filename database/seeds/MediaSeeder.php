@@ -11,6 +11,6 @@ class MediaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Model\Media::class, 300)->create();
     }
 }
