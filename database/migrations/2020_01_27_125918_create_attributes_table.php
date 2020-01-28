@@ -17,7 +17,7 @@ class CreateAttributesTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->unsigned()->index()->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
-            $table->decimal('price')->unsigned();
+            $table->decimal('price',9,2)->unsigned();
             $table->string('color_name');
             $table->string('color_hex');
             $table->timestamps();

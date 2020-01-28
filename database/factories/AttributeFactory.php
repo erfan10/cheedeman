@@ -11,7 +11,7 @@ $factory->define(Attribute::class, function (Faker $faker) {
         'product_id' => function () {
             return Product::all()->random();
         },
-        'price' => $faker->numberBetween(10000, 10000000),
+        'price' => $faker->randomFloat(2, 0, 6),
         'color_name' => $faker->colorName,
         'color_hex' => $faker->hexColor
     ];

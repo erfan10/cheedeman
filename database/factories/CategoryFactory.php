@@ -8,7 +8,9 @@ use Faker\Generator as Faker;
 $factory->define(Category::class, function (Faker $faker) {
     return [
         'parent_id' => function () {
-            return (rand(0, 1)) ? Category::all()->random() : 0;
+            $categories = Category::all();
+            return ($categories->count() === 0) ? null : (rand(0, 1) ? $categories->random() : null);
+
         },
         'name' => $faker->word,
         'icon' => $faker->imageUrl(70, 70),
